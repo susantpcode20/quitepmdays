@@ -14,7 +14,7 @@
             --rose-brown: #966F6B;
             --deep-gray: #374151;
             --border-gray: #D1D5DB;
-            --card-mist: #e5ebf5; /* 圖片中較淺的霧藍色 */
+            --card-mist: #e5ebf5; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -46,11 +46,12 @@
             margin: auto;
         }
 
+        /* Navigation 調整：加入 Logo 樣式 */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 40px 0;
+            padding: 20px 0; /* 縮小垂直 padding 以適應 Logo */
             position: sticky;
             top: 0;
             background: rgba(253, 252, 240, 0.85);
@@ -58,13 +59,20 @@
             z-index: 100;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .logo-container {
+            display: flex;
+            align-items: center;
             cursor: pointer;
-            color: var(--deep-gray);
+        }
+
+        .brand-logo {
+            height: 60px; /* 調整 Logo 高度 */
+            width: auto;
+            transition: opacity 0.3s;
+        }
+
+        .brand-logo:hover {
+            opacity: 0.8;
         }
 
         nav .links a {
@@ -110,7 +118,6 @@
             font-style: italic;
         }
 
-        /* 調整後的卡片樣式 - 參考上傳圖片 */
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -123,21 +130,11 @@
             border: 1px solid var(--border-gray);
             padding: 35px 25px;
             border-radius: 18px;
-            transition: all 0.4s ease;
         }
 
-        .focus-card h3 { 
-            font-size: 1.25rem; 
-            margin-bottom: 15px; 
-            color: var(--deep-gray);
-        }
+        .focus-card h3 { font-size: 1.25rem; margin-bottom: 15px; color: var(--deep-gray); }
+        .focus-card p { font-size: 0.95rem; opacity: 0.8; }
 
-        .focus-card p { 
-            font-size: 0.95rem; 
-            opacity: 0.8;
-        }
-
-        /* 本月主題大區塊 - 參考上傳圖片 */
         .theme-banner {
             background: var(--card-mist);
             border: 1px solid var(--border-gray);
@@ -149,9 +146,7 @@
 
         .theme-banner h2 { font-size: 2rem; margin-bottom: 20px; }
         .theme-banner h3 { font-size: 1.1rem; margin-bottom: 15px; opacity: 0.7; }
-        .theme-banner p { font-size: 1rem; }
 
-        /* Shared Card Style (for Projects) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -163,15 +158,11 @@
             border: 1px solid var(--border-gray);
             padding: 40px;
             border-radius: 12px;
-            transition: all 0.4s ease;
         }
 
-        /* Living & Essays styles keep the same... */
         .living-item { margin-bottom: 80px; text-align: center; }
         .living-photo { width: 100%; max-width: 800px; aspect-ratio: 16 / 9; background: var(--mist-blue); margin: 0 auto 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
         .living-caption { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--rose-brown); }
-        .essay-list { max-width: 700px; margin: auto; }
-        .essay-item { border-bottom: 1px solid var(--border-gray); padding: 30px 0; }
         
         .btn { display: inline-block; background: var(--rose-brown); color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; margin-top: 25px; font-size: 0.9rem; }
         .quote { text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 100px 0; color: var(--rose-brown); }
@@ -180,6 +171,9 @@
         @media (max-width: 900px) {
             .focus-grid { grid-template-columns: 1fr; }
             .hero { grid-template-columns: 1fr; text-align: center; }
+            nav { flex-direction: column; gap: 15px; }
+            nav .links { margin-left: 0; }
+            nav .links a { margin: 0 10px; }
         }
     </style>
 </head>
@@ -187,7 +181,9 @@
 
 <div class="container">
     <nav>
-        <div class="logo" onclick="showPage('home')">Quiet PM Days</div>
+        <div class="logo-container" onclick="showPage('home')">
+            <img src="logo.png" alt="Quiet PM Days Logo" class="brand-logo">
+        </div>
         <div class="links">
             <a href="javascript:void(0)" onclick="showPage('projects')">Project</a>
             <a href="javascript:void(0)" onclick="showPage('living')">Living</a>
@@ -207,7 +203,6 @@
         
         <section style="margin-top: 80px;">
             <h2 style="font-size: 1.8rem; margin-bottom: 40px; font-weight: 600;">最新節奏紀錄</h2>
-            
             <div class="focus-grid">
                 <div class="focus-card">
                     <h3>專案節奏重建</h3>
@@ -239,11 +234,6 @@
                 <p>利用 AI 協作技術，打造個人品牌的數位門面。</p>
                 <p style="font-size: 0.8rem; margin-top: 15px; color: var(--rose-brown);">#AI #Design</p>
             </div>
-            <div class="card">
-                <h3>Knowledge Garden</h3>
-                <p>結構化的個人知識庫，紀錄閱讀與反思。</p>
-                <p style="font-size: 0.8rem; margin-top: 15px; color: var(--rose-brown);">#System #Notion</p>
-            </div>
         </div>
     </main>
 
@@ -252,10 +242,6 @@
         <div class="living-item">
             <div class="living-photo">書桌上的晨光與筆記草圖</div>
             <p class="living-caption">Stillness is a strength.</p>
-        </div>
-        <div class="living-item">
-            <div class="living-photo">一杯溫熱的茶與進行中的代碼</div>
-            <p class="living-caption">Projects flow better with patience.</p>
         </div>
     </main>
 
