@@ -46,7 +46,7 @@
             margin: auto;
         }
 
-        /* Navigation - 恢復為純文字樣式 */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -69,9 +69,7 @@
             transition: color 0.3s;
         }
 
-        .logo:hover {
-            color: var(--rose-brown);
-        }
+        .logo:hover { color: var(--rose-brown); }
 
         nav .links a {
             text-decoration: none;
@@ -93,7 +91,7 @@
             padding: 80px 0 40px;
         }
 
-        /* Home - Hero */
+        /* Hero */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -114,9 +112,16 @@
             justify-content: center;
             color: var(--rose-brown);
             font-style: italic;
+            overflow: hidden; /* 確保圖片不超出圓角 */
         }
 
-        /* 近期焦點卡片樣式 - 參考圖片設計 */
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Focus Grid */
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -131,9 +136,6 @@
             border-radius: 18px;
         }
 
-        .focus-card h3 { font-size: 1.25rem; margin-bottom: 15px; color: var(--deep-gray); }
-        .focus-card p { font-size: 0.95rem; opacity: 0.8; }
-
         .theme-banner {
             background: var(--card-mist);
             border: 1px solid var(--border-gray);
@@ -143,25 +145,31 @@
             margin-top: 20px;
         }
 
-        .theme-banner h2 { font-size: 2rem; margin-bottom: 20px; }
-        .theme-banner h3 { font-size: 1.1rem; margin-bottom: 15px; opacity: 0.7; }
-
-        /* Shared Card Style (for Projects) */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid var(--border-gray);
-            padding: 40px;
-            border-radius: 12px;
-        }
-
+        /* Living Section - 更新圖片樣式 */
         .living-item { margin-bottom: 80px; text-align: center; }
-        .living-photo { width: 100%; max-width: 800px; aspect-ratio: 16 / 9; background: var(--mist-blue); margin: 0 auto 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        
+        .living-photo { 
+            width: 100%; 
+            max-width: 800px; 
+            aspect-ratio: 16 / 9; 
+            margin: 0 auto 20px; 
+            border-radius: 8px; 
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: var(--mist-blue);
+        }
+
+        .living-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 讓圖片填滿並保持比例 */
+            transition: transform 0.6s ease;
+        }
+
+        .living-photo:hover img {
+            transform: scale(1.05);
+        }
+
         .living-caption { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--rose-brown); }
         
         .btn { display: inline-block; background: var(--rose-brown); color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; margin-top: 25px; font-size: 0.9rem; }
@@ -196,7 +204,9 @@
                 <p>我是風格創作者，在 Quiet PM Days 紀錄專案與生活的節奏實踐。</p>
                 <a href="javascript:void(0)" onclick="showPage('essays')" class="btn">閱讀開站感言</a>
             </div>
-            <div class="hero-image">午後書房的微光意境</div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1000" alt="Interior">
+            </div>
         </div>
         
         <section style="margin-top: 80px;">
@@ -237,7 +247,9 @@
     <main id="living" class="page">
         <h2 class="section-title">Living Moments</h2>
         <div class="living-item">
-            <div class="living-photo">書桌上的晨光與筆記草圖</div>
+            <div class="living-photo">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1200" alt="Morning Desk">
+            </div>
             <p class="living-caption">Stillness is a strength.</p>
         </div>
     </main>
