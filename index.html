@@ -14,6 +14,7 @@
             --rose-brown: #966F6B;
             --deep-gray: #374151;
             --border-gray: #D1D5DB;
+            --card-mist: #e5ebf5; /* 圖片中較淺的霧藍色 */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,7 +27,6 @@
             overflow-x: hidden;
         }
 
-        /* 頁面切換動畫 */
         .page {
             display: none;
             animation: fadeIn 1.2s ease forwards;
@@ -46,7 +46,6 @@
             margin: auto;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -80,7 +79,6 @@
 
         nav .links a:hover { color: var(--rose-brown); }
 
-        /* Hero / General Typography */
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
         
         .section-title {
@@ -112,7 +110,48 @@
             font-style: italic;
         }
 
-        /* Card Styles (Projects) */
+        /* 調整後的卡片樣式 - 參考上傳圖片 */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .focus-card {
+            background: var(--card-mist);
+            border: 1px solid var(--border-gray);
+            padding: 35px 25px;
+            border-radius: 18px;
+            transition: all 0.4s ease;
+        }
+
+        .focus-card h3 { 
+            font-size: 1.25rem; 
+            margin-bottom: 15px; 
+            color: var(--deep-gray);
+        }
+
+        .focus-card p { 
+            font-size: 0.95rem; 
+            opacity: 0.8;
+        }
+
+        /* 本月主題大區塊 - 參考上傳圖片 */
+        .theme-banner {
+            background: var(--card-mist);
+            border: 1px solid var(--border-gray);
+            border-radius: 20px;
+            padding: 80px 40px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .theme-banner h2 { font-size: 2rem; margin-bottom: 20px; }
+        .theme-banner h3 { font-size: 1.1rem; margin-bottom: 15px; opacity: 0.7; }
+        .theme-banner p { font-size: 1rem; }
+
+        /* Shared Card Style (for Projects) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -127,72 +166,19 @@
             transition: all 0.4s ease;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border-color: var(--rose-brown);
-        }
-
-        /* Living - Photography Layout */
-        .living-item {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .living-photo {
-            width: 100%;
-            max-width: 800px;
-            aspect-ratio: 16 / 9;
-            background: var(--mist-blue);
-            margin: 0 auto 20px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .living-caption {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.6rem;
-            color: var(--rose-brown);
-        }
-
-        /* Essays - List Layout */
+        /* Living & Essays styles keep the same... */
+        .living-item { margin-bottom: 80px; text-align: center; }
+        .living-photo { width: 100%; max-width: 800px; aspect-ratio: 16 / 9; background: var(--mist-blue); margin: 0 auto 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+        .living-caption { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--rose-brown); }
         .essay-list { max-width: 700px; margin: auto; }
-        .essay-item {
-            border-bottom: 1px solid var(--border-gray);
-            padding: 30px 0;
-        }
+        .essay-item { border-bottom: 1px solid var(--border-gray); padding: 30px 0; }
+        
+        .btn { display: inline-block; background: var(--rose-brown); color: white; padding: 12px 28px; border-radius: 50px; text-decoration: none; margin-top: 25px; font-size: 0.9rem; }
+        .quote { text-align: center; font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin: 100px 0; color: var(--rose-brown); }
+        footer { text-align: center; padding: 60px 0; font-size: 0.75rem; opacity: 0.6; letter-spacing: 1px; }
 
-        /* Global Elements */
-        .btn {
-            display: inline-block;
-            background: var(--rose-brown);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            margin-top: 25px;
-            font-size: 0.9rem;
-        }
-
-        .quote {
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            margin: 100px 0;
-            color: var(--rose-brown);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            font-size: 0.75rem;
-            opacity: 0.6;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .focus-grid { grid-template-columns: 1fr; }
             .hero { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
@@ -219,17 +205,28 @@
             <div class="hero-image">午後書房的微光意境</div>
         </div>
         
-        <section style="margin-top: 60px;">
-            <h2 style="font-size: 1.8rem; margin-bottom: 30px;">近期焦點</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>本月主題：節奏重建</h3>
-                    <p>在穩定中推進，而非急促前行。探索如何與壓力共存並保持平靜。</p>
+        <section style="margin-top: 80px;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 40px; font-weight: 600;">最新節奏紀錄</h2>
+            
+            <div class="focus-grid">
+                <div class="focus-card">
+                    <h3>專案節奏重建</h3>
+                    <p>重新設計我的深度工作流程。</p>
                 </div>
-                <div class="card">
-                    <h3>最新 Living</h3>
-                    <p>午後茶杯＋專案筆記的溫暖搭配。在瑣碎中看見美。</p>
+                <div class="focus-card">
+                    <h3>書桌系統優化</h3>
+                    <p>讓生活更有留白感。</p>
                 </div>
+                <div class="focus-card">
+                    <h3>慢速規劃法</h3>
+                    <p>讓進度與呼吸同步。</p>
+                </div>
+            </div>
+
+            <div class="theme-banner">
+                <h2>本月主題</h2>
+                <h3>專案節奏重建</h3>
+                <p>在穩定中推進，而非急促前行。</p>
             </div>
         </section>
     </main>
@@ -244,7 +241,7 @@
             </div>
             <div class="card">
                 <h3>Knowledge Garden</h3>
-                <p>結構化的個人知識庫，紀錄閱讀與反思。讓成長有跡可循。</p>
+                <p>結構化的個人知識庫，紀錄閱讀與反思。</p>
                 <p style="font-size: 0.8rem; margin-top: 15px; color: var(--rose-brown);">#System #Notion</p>
             </div>
         </div>
@@ -268,12 +265,7 @@
             <div class="essay-item">
                 <p style="font-size: 0.8rem; opacity: 0.5;">2026.02.17</p>
                 <h3 style="margin: 10px 0;">為什麼我們需要 Quiet PM Days？</h3>
-                <p>在資訊爆炸的時代，為自己留出一個安靜的午後，是為了走更遠的路...</p>
-            </div>
-            <div class="essay-item">
-                <p style="font-size: 0.8rem; opacity: 0.5;">2026.02.10</p>
-                <h3 style="margin: 10px 0;">慢速規劃法的實踐</h3>
-                <p>停止追求極速成長，轉向追求「穩定前行」的核心邏輯分享。</p>
+                <p>為自己留出一個安靜的午後，是為了走更遠的路...</p>
             </div>
         </div>
     </main>
@@ -287,13 +279,9 @@
 </div>
 
 <script>
-    // 頁面切換控制
     function showPage(pageId) {
-        // 隱藏所有
         const pages = document.querySelectorAll('.page');
         pages.forEach(p => p.classList.remove('active'));
-        
-        // 顯示目標
         const target = document.getElementById(pageId);
         if (target) {
             target.classList.add('active');
@@ -301,7 +289,6 @@
         }
     }
 
-    // 時間更新
     function updateTime() {
         const now = new Date();
         const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
