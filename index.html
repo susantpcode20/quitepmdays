@@ -46,12 +46,12 @@
             margin: auto;
         }
 
-        /* Navigation 調整：加入 Logo 樣式 */
+        /* Navigation - 加入 Logo 圖片樣式 */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0; /* 縮小垂直 padding 以適應 Logo */
+            padding: 25px 0; /* 調整間距以適應 Logo */
             position: sticky;
             top: 0;
             background: rgba(253, 252, 240, 0.85);
@@ -59,15 +59,10 @@
             z-index: 100;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
         .brand-logo {
-            height: 60px; /* 調整 Logo 高度 */
+            height: 50px; /* 控制 Logo 顯示高度 */
             width: auto;
+            cursor: pointer;
             transition: opacity 0.3s;
         }
 
@@ -118,6 +113,7 @@
             font-style: italic;
         }
 
+        /* 近期焦點卡片樣式 */
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -147,6 +143,7 @@
         .theme-banner h2 { font-size: 2rem; margin-bottom: 20px; }
         .theme-banner h3 { font-size: 1.1rem; margin-bottom: 15px; opacity: 0.7; }
 
+        /* Shared Card Style (for Projects) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -174,6 +171,7 @@
             nav { flex-direction: column; gap: 15px; }
             nav .links { margin-left: 0; }
             nav .links a { margin: 0 10px; }
+            .brand-logo { height: 40px; } /* 手機版縮小 Logo */
         }
     </style>
 </head>
@@ -181,9 +179,8 @@
 
 <div class="container">
     <nav>
-        <div class="logo-container" onclick="showPage('home')">
-            <img src="logo.png" alt="Quiet PM Days Logo" class="brand-logo">
-        </div>
+        <img src="Quiet_PM_Days.png" alt="Quiet PM Days Logo" class="brand-logo" onclick="showPage('home')">
+        
         <div class="links">
             <a href="javascript:void(0)" onclick="showPage('projects')">Project</a>
             <a href="javascript:void(0)" onclick="showPage('living')">Living</a>
@@ -232,7 +229,6 @@
             <div class="card">
                 <h3>Vibe Coding Portal</h3>
                 <p>利用 AI 協作技術，打造個人品牌的數位門面。</p>
-                <p style="font-size: 0.8rem; margin-top: 15px; color: var(--rose-brown);">#AI #Design</p>
             </div>
         </div>
     </main>
