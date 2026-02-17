@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiet PM Days | 靜日工作室</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400;500&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #FDFCF0;
+  --mist-blue: #E3E9F2;
+  --rose-brown: #966F6B;
+  --deep-gray: #374151;
+  --border-gray: #D1D5DB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--cream);
+  font-family: 'Inter', sans-serif;
+  color: var(--deep-gray);
+  line-height: 1.8;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--deep-gray);
+  margin-left: 30px;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 60vh;
+  gap: 40px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+}
+
+.hero-image {
+  aspect-ratio: 4 / 3;
+  background: var(--mist-blue);
+  border: 1px solid var(--border-gray);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Section */
+section {
+  margin: 100px 0;
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background: var(--mist-blue);
+  border: 1px solid var(--border-gray);
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Monthly Theme */
+.theme {
+  background: var(--mist-blue);
+  border: 1px solid var(--border-gray);
+  backdrop-filter: blur(8px);
+  padding: 60px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+/* Quote */
+.quote {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  margin: 80px 0;
+}
+
+/* Footer Script */
+.footer-script {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 60px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--rose-brown);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<nav>
+  <div><strong>Quiet PM Days</strong></div>
+  <div>
+    <a href="#">Project</a>
+    <a href="#">Living</a>
+    <a href="#">Essays</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>優雅地處理專案，也溫柔地生活。</h1>
+    <p>我是風格創作者，在 Quiet PM Days 紀錄專案與生活的節奏實踐。</p>
+    <p><em>Growth happens quietly.</em></p>
+    <a href="#" class="button">閱讀最新文章</a>
+  </div>
+
+  <div class="hero-image">
+    午後書房意境圖（4:3）
+  </div>
+</div>
+
+<section>
+  <h2 style="font-family: 'Playfair Display', serif; margin-bottom:40px;">最新節奏紀錄</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>專案節奏重建</h3>
+      <p>重新設計我的深度工作流程。</p>
+    </div>
+    <div class="card">
+      <h3>書桌系統優化</h3>
+      <p>讓生活更有留白感。</p>
+    </div>
+    <div class="card">
+      <h3>慢速規劃法</h3>
+      <p>讓進度與呼吸同步。</p>
+    </div>
+  </div>
+</section>
+
+<section class="theme">
+  <h2 style="font-family: 'Playfair Display', serif;">本月主題</h2>
+  <p style="margin-top:20px;">專案節奏重建</p>
+  <p style="margin-top:10px;">在穩定中推進，而非急促前行。</p>
+</section>
+
+<div class="quote">
+  Growth happens quietly.
+</div>
+
+<div class="footer-script">
+  <div id="time"></div>
+  <div>此刻，與你一同穩定前行。</div>
+</div>
+
+</div>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+  document.getElementById('time').textContent = "現在時間：" + timeString;
+}
+updateTime();
+setInterval(updateTime, 60000);
+</script>
+
+</body>
+</html>
