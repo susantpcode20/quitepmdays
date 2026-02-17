@@ -46,12 +46,12 @@
             margin: auto;
         }
 
-        /* Navigation - 加入 Logo 圖片樣式 */
+        /* Navigation - 恢復為純文字樣式 */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 0; /* 調整間距以適應 Logo */
+            padding: 40px 0;
             position: sticky;
             top: 0;
             background: rgba(253, 252, 240, 0.85);
@@ -59,15 +59,18 @@
             z-index: 100;
         }
 
-        .brand-logo {
-            height: 50px; /* 控制 Logo 顯示高度 */
-            width: auto;
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: opacity 0.3s;
+            color: var(--deep-gray);
+            transition: color 0.3s;
         }
 
-        .brand-logo:hover {
-            opacity: 0.8;
+        .logo:hover {
+            color: var(--rose-brown);
         }
 
         nav .links a {
@@ -113,7 +116,7 @@
             font-style: italic;
         }
 
-        /* 近期焦點卡片樣式 */
+        /* 近期焦點卡片樣式 - 參考圖片設計 */
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -171,7 +174,6 @@
             nav { flex-direction: column; gap: 15px; }
             nav .links { margin-left: 0; }
             nav .links a { margin: 0 10px; }
-            .brand-logo { height: 40px; } /* 手機版縮小 Logo */
         }
     </style>
 </head>
@@ -179,8 +181,7 @@
 
 <div class="container">
     <nav>
-        <img src="Quiet_PM_Days.png" alt="Quiet PM Days Logo" class="brand-logo" onclick="showPage('home')">
-        
+        <div class="logo" onclick="showPage('home')">Quiet PM Days</div>
         <div class="links">
             <a href="javascript:void(0)" onclick="showPage('projects')">Project</a>
             <a href="javascript:void(0)" onclick="showPage('living')">Living</a>
